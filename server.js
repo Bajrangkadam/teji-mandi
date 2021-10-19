@@ -32,6 +32,8 @@ app.use('/api-docs', swaggerui.serve, swaggerui.setup(swaggerconfiguration));
 app.use(errorHandler.genericErrorHandler);
 app.use(errorHandler.methodNotAllowed);
 
-app.listen(app.get('port'), app.get('host'), () => {
-    console.log(`Server started at http://${app.get('host')}:${app.get('port')}`);
-});
+app.listen(process.env.PORT || 5060)
+
+// app.listen(app.get('port'), app.get('host'), () => {
+//     console.log(`Server started at http://${app.get('host')}:${app.get('port')}`);
+// });
