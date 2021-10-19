@@ -1,0 +1,209 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Teji Mandi Services",
+        "description": "",
+        "lecense": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:8081",
+    "basepath": "/api",
+    "tags": [
+        {
+            "name": "Countries",
+            "description": "API's of countries data"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Countries"
+                ],
+                "summary": "Checks if the server is alive",
+                "parameters": [ ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/HelthCheckResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/countries/": {
+            "get": {
+                "tags": [
+                    "Countries"
+                ],
+                "summary": "Get Countries API based on year and category",
+                "parameters": [ {
+                    "in": "query",
+                    "name": "year",
+                    "type": "string"
+                },
+                {
+                    "in": "query",
+                    "name": "category",
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllCountriesResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/countries/{id}": {
+            "get": {
+                "tags": [
+                    "Countries"
+                ],
+                "summary": "Get All Countries Based On ID",                
+                "parameters": [ {
+                    "in": "path",
+                    "name": "id",
+                    "required": true,
+                    "type": "number"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllCountriesResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/countries/getfilterdata": {
+            "get": {
+                "tags": [
+                    "Countries"
+                ],
+                "summary": "Get Countries API based on startYear and endYear",
+                "parameters": [
+                {
+                    "in": "query",
+                    "name": "startyear",
+                    "type": "string"
+                },
+                {
+                    "in": "query",
+                    "name": "endyear",
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllCountriesResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+       
+    },
+    "definitions": {
+        "HelthCheckResponse": {
+            "type": "object",
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "apiVersion": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetAllCountriesResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "year": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    }
+                  
+                }
+            }
+        }
+            }
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "required": [
+                "error",
+                "status"
+            ],
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
