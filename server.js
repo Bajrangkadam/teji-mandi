@@ -10,8 +10,7 @@ const json = require('./middlewares/json');
 const swaggerconfiguration = require('./utils/swagger.json');
 
 const app=express();
-const APP_PORT =
-    (process.env.NODE_ENV === 'test' ? process.env.TEST_APP_PORT : process.env.APP_PORT) || process.env.PORT || '8080';
+const APP_PORT =process.env.PORT || 5000;
 const APP_HOST = process.env.APP_HOST || '127.0.0.1';
 
 app.set('port', APP_PORT);
