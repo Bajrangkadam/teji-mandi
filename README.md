@@ -17,17 +17,17 @@ Finally, start the application.
     $ npm run start:dev (For development)
     $ npm run start (For production)
 
-Navigate to http://localhost:8081/api-docs/ to verify installation.
+Navigate to https://teji-mandi.herokuapp.com/api-docs/ to verify installation.
 
 
 ## CURLS:
 
-* Swagger docs : http://localhost:8081/api-docs/#/
+* Swagger docs : https://teji-mandi.herokuapp.com/api-docs/#/
 
-* All countries : http://localhost:8081/api/countries/all
+* All countries : https://teji-mandi.herokuapp.com/api/countries/all
 
-* Countries Base on Id : http://localhost:8081/api/countries/2
+* Countries Base on Id : https://teji-mandi.herokuapp.com/api/countries/2
 
-* Countries Base on start year & end year : http://localhost:8081/api/countries/getfilterdata?startyear=2011&endyear=2012
+* Countries Base on start year & end year : https://teji-mandi.herokuapp.com/api/countries/getfilterdata?startyear=2011&endyear=2012
 
-* Countries Base on Year & Catagary : http://localhost:8081/api/countries/?year=2010&category=co2
+* Countries Base on Year & Catagary : https://teji-mandi.herokuapp.com/api/countries/?year=2010&category=co2
