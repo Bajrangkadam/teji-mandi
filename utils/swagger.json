@@ -9,17 +9,13 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "https://teji-mandi.herokuapp.com",
+    "host": "teji-mandi.herokuapp.com",
     "basepath": "/api",
     "tags": [
         {
             "name": "Countries",
             "description": "API's of countries data"
         }
-    ],
-    "schemes": [
-        "http",
-        "https"
     ],
     "produces": [
         "application/json"
